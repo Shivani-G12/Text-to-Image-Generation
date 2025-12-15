@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated Image</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Page Styling */
+        body {
+            background: linear-gradient(to right, #00c6ff, #0072ff); /* Blue gradient */
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .image-container {
+            background: linear-gradient(to right, #6ee7b7, #3b82f6); /* Light blue to green gradient */
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        /* Button Styling */
+        .download-button {
+            background-color: #0061ff;
+            color: white;
+            padding: 12px 24px;
+            font-size: 1.25rem;
+            border-radius: 10px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .download-button:hover {
+            background-color: #0041d3;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="image-container">
+        <h1 class="text-white text-4xl mb-6">Generated Image</h1>
+
+        <!-- Image and download button will appear here -->
+        <img id="generatedImage" src="" alt="Generated Image" class="mb-4" style="max-width: 100%; border-radius: 10px;">
+        
+        <!-- Download button -->
+        <button id="downloadBtn" class="download-button">Download Image</button>
+    </div>
+
+    <script>
+        // Get the image URL from the query parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const imageUrl = urlParams.get('imageUrl');
+
+        // Set the image source to the passed URL
+        document.getElementById('generatedImage').src = imageUrl;
+
+        // Download button functionality
+        document.getElementById('downloadBtn').addEventListener('click', function () {
+            const link = document.createElement('a');
+            link.href = imageUrl;
+            link.download = 'generated-image.png'; // Default filename
+            link.click();
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html> 
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEXT TO IMAGE GENERATOR</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+
+        /* Gradient blue background for the entire page */
+        body {
+            background: linear-gradient(to right, #00c6ff, #0072ff); /* Blue gradient */
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        /* New gradient container with light blue to green */
+        .gradient-blue-green-container {
+            background: linear-gradient(to right, #6ee7b7, #3b82f6); /* Light blue to green gradient */
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Rainbow gradient text */
+        .rainbow-text {
+            background: linear-gradient(to right, red, orange, yellow, green,indigo,purple, violet);
+            -webkit-background-clip: text;
+            color: transparent;
+            font-weight: bold;
+            font-size: 2.5rem;
+        }
+
+        /* Button styling */
+        .cta-button {
+            background-color: #0061ff;
+            color: white;
+            padding: 12px 24px;
+            font-size: 1.25rem;
+            border-radius: 10px;
+            margin-top: 20px;
+            width: 100%;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #0041d3;
+            transform: scale(1.05);
+        }
+
+        /* Textarea styling */
+        textarea {
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-size: 1rem;
+            border: 2px solid #ddd;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Loading Spinner styling */
+        .loading-spinner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.5rem;
+            color: pink;
+        }
+
+        /* Message container for empty input warning */
+        .empty-input-message {
+            color: red;
+            font-size: 1.1rem;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="gradient-blue-green-container">
+        <h1 class="rainbow-text">TEXT TO IMAGE GENERATION</h1>
+        <p class="text-white mb-6">Enter your text below to generate an image from it!</p>
+        <textarea id="textInput" rows="4" placeholder="Enter your text here..."></textarea>
+        <button id="GenerateBtn" class="cta-button">
+            Generate Image
+        </button>
+        <!-- Loading spinner (initially hidden) -->
+        <div id="loadingSpinner" class="loading-spinner" style="display: none;">
+            Generating Image...
+        </div>
+        <!-- Empty input message (initially hidden) -->
+        <div id="emptyInputMessage" class="empty-input-message" style="display: none;">
+            Please enter some text to generate an image.
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
